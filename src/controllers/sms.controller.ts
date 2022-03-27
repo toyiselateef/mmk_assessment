@@ -58,6 +58,7 @@ async function outbound(req: Request, res: Response) {
         .json({ message: "", error: "to parameter not found" });
     }
   } catch (error) {
+    console.log('errors')
     return res.status(500).json({ message: "", error: "unknown failure" });
   }
 }
