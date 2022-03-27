@@ -6,15 +6,17 @@ const authenticate = async (
   res: Response,
   next: NextFunction
 ) => {
+  console.log('auth')
   const username = req.body.username;
   const password = req.body.password;
 
   const { rows } = await db.query(
-    "Select * where auth_id = $1 & password = $2",
+    "Select * from account where auth_id = $2 and username = $1",
     [username, password]
   );
 
-  if (rows > 0) {
+  if (rows.length > 0) {
+    req.body.userId=rows[0].id
     return next();
   } else {
     return res.status(403).json({ message: "invalid username or password" });

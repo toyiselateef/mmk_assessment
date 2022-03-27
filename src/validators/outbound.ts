@@ -21,6 +21,7 @@ const outbound = Joi.object().keys({
   }),
   username: Joi.string().optional(),
   password: Joi.string().optional(),
+  userId: Joi.number().optional(),
 });
 
 export default outbound;

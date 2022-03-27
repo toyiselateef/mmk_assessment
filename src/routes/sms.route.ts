@@ -6,8 +6,8 @@ import validate from "../middlewares/validate";
 
 const router: IRouter = express.Router();
 
-router.get("/inbound/sms/", validate(inbound), sms.inbound);
+router.post("/inbound/sms/", validate(inbound), sms.inbound);
 
-router.get("/outbound/sms/", validate(outbound), sms.outbound);
+router.post("/outbound/sms/", validate(outbound), sms.outbound);
 
 export default router;

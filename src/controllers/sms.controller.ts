@@ -4,11 +4,12 @@ import redisClient from "../middlewares/redis";
 import redis from "../middlewares/redis";
 
 async function inbound(req: Request, res: Response) {
+  console.log('inbound here');
   try {
-    const { to, from, text, username } = req.body;
+    const { to, from, text, userId } = req.body;
     const { rows } = await db.query(
-      "Select * from  phone_number where number = $1 & account_id = $2",
-      [to, username]
+      "Select * from  phone_number where number = $1 and account_id = $2",
+      [to, userId]
     );
 
     if (rows.length > 0) {
@@ -27,12 +28,13 @@ async function inbound(req: Request, res: Response) {
 }
 
 async function outbound(req: Request, res: Response) {
+  console.log('outbound here');
   try {
-    const { to, from, text, username } = req.body;
+    const { to, from, text, userId } = req.body;
 
     const { rows } = await db.query(
-      "Select * from  phone_number where number = $1 & account_id = $2",
-      [from, username]
+      "Select * from  phone_number where number = $1 and account_id = $2",
+      [from, userId]
     );
 
     if (rows.length > 0) {

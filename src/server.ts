@@ -3,12 +3,23 @@ import morgan from "morgan";
 import "dotenv/config";
 import authenticate from "./middlewares/auth";
 import smsModule from "./routes/sms.route";
+import swaggerUi from "swagger-ui-express";
 
 const app: Application = express();
 
 const port = process.env.PORT || 3001;
 
 app.use(express.json({ limit: "50mb" }));
+
+// app.use(
+//   "/docs",
+//   swaggerUi.serve,
+//   swaggerUi.setup(undefined, {
+//     swaggerOptions: {
+//       url: "/swagger.json",
+//     },
+//   })
+// );
 
 app.use(function (req: Request, res: Response, next: NextFunction) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -17,9 +28,10 @@ app.use(function (req: Request, res: Response, next: NextFunction) {
     "Origin, X-Requested-With, Content-Type, Accept"
   );
   const validEndpoints = ["/inbound/sms", "/outbound/sms"];
-  if (!validEndpoints.includes(req.route)) return res.status(405);
+  if (!validEndpoints.includes(req.originalUrl)) return res.status(405);
   return next();
 });
+
 
 app.use(
   morgan(

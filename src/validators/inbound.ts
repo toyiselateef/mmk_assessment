@@ -19,6 +19,9 @@ const inbound = Joi.object().keys({
     "string.min": `text is invalid`,
     "any.required": `text is invalid`,
   }),
+  username: Joi.string().optional(),
+  password: Joi.string().optional(),
+  userId: Joi.number().optional(),
 });
 
 export default inbound;
