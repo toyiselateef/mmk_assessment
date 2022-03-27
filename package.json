@@ -6,7 +6,7 @@
   "scripts": {
     "devStart": "nodemon --watch src/**/*.ts --ignore src/populatedb/* --exec ts-node ./src/server.ts",
     "test": "jest --watchAll --verbose -c ./jest.unit.json",
-    "start": "node ."
+    "start": "node ./src/server.ts"
   },
   "repository": {
     "type": "git",
