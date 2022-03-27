@@ -19,6 +19,7 @@ const authenticate = async (
     req.body.userId=rows[0].id
     return next();
   } else {
+    console.log('invalid username or password')
     return res.status(403).json({ message: "invalid username or password" });
   }
 };
