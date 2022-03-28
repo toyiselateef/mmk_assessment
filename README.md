@@ -9,7 +9,7 @@ This project uses the following environment variables:
 
 
 # Pre-requisites
-- Install [Node.js](https://nodejs.org/en/) version 8.0.0
+- Install [Node.js](https://nodejs.org/en/) version 16.8.0
 
 
 # Getting started
@@ -125,17 +125,6 @@ Test files are created under test folder.
 # Swagger
 ## Specification
 The swagger specification file is located in the static folder ("public") as swagger.json. 
-
-
-- Validator
-
-  Validation middleware will only route requests that match paths in Swagger specification exactly in terms of endpoint path, request mime type, required and optional parameters, and their declared types.
-
-- Swagger UI
-
-  The final piece of middleware enables serving of the swagger-ui interface direct from the Express server. It also serves the raw Swagger schema (.json) that clients can consume. Paths for both are configurable.
-  The swagger-ui endpoint is acessible at /docs endpoint.
-
 
 # Common Issues
 
