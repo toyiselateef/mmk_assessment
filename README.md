@@ -34,7 +34,7 @@ swagger-ui  Endpoint : http://localhost:8001/docs
 
 
 # TypeScript + Node 
-The main purpose of this repository is to show a simple microservice that uses postgresql as database provider and redis for cloud. The Rest APIs will be using the Swagger (OpenAPI) Specification, and supports cloud postgres and redis lab.
+The main purpose of this repository is to show a simple microservice that uses postgresql as database provider and redis for caching. The Rest APIs will be using the Swagger (OpenAPI) Specification, and supports cloud postgres and redis lab.
 
 
 
