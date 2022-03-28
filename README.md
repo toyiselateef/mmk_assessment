@@ -19,14 +19,17 @@ This project uses the following environment variables:
 # Getting started
 - Clone the repository
 ```
-git clone  <git lab template url> <project_name>
+git clone  https://github.com/toyiselateef/mmk_assessment.git
 ```
 - Install dependencies
 ```
-cd <project_name>
+cd mmk_backend
 npm install
 ```
 - Build and run the project
+```
+npm build
+```
 ```
 npm start
 ```
@@ -64,7 +67,8 @@ The folder structure of this app is explained below:
 | **src/routes**           | Contain express routes ('/sms/inbound' and '/sms/outbound'), separated by module/area of application and authenticate middleware         
 | **src/validators**              | model/data validators that are used for validating request models.               
 | **src**/server.ts         | Entry point to the API                                                               |
-| package.json             | Contains npm dependencies as well as [build scripts](#what-if-a-library-isnt-on-definitelytyped)   | tsconfig.json            | Config settings for compiling source code only written in TypeScript    
+| package.json             | Contains npm dependencies as well as 
+| tsconfig.json            | Config settings for compiling source code only written in TypeScript    
                                                 |
 
 ## Building the project
@@ -72,7 +76,7 @@ The folder structure of this app is explained below:
 ```json
 {
     
-  "compilerOptions": {
+  
     "compilerOptions": {
       "target": "ES2019",
       "module": "commonjs",
@@ -138,9 +142,9 @@ The current solution has an example for using a private npm repository. if you w
 The database needs to be up and running, also if theres ip whitelisting on your database ensure to whitelist the server hosting this api's ip address(es)
 
 
-###sample request and response
+### sample request and response
 
-inbound sms
+#### inbound sms
     PATH : /sms/inbound
     Method : POST
     Parameters (Application Json)
@@ -153,59 +157,51 @@ inbound sms
     
     Headers :
         Content-Type : Application Json
-
-    Sample Req :
-     ```json
-     {   
-	        "to": "4223232435",
-	        "from" : "42232446567",
-	        "text" : "ok this is great",
-          "username": "aed3",
-	        "password" : "ksjdskjs2"
-        }
-
-        ```
-    Sample Response :
-      ```json  {
-            "message": "inbound message ok",
+```json
+{
+  "Sample Req":  
+         {
+	          "to": "4223232435",
+	          "from" : "42232446567",
+	          "text" : "ok this is great",
+            "username": "aed3",
+	          "password" : "ksjdskjs2"
+          },
+  "Sample Response": 
+          {
+            "message": "outbound message ok",
             "error": "",
-            
-        }
-```
+          }
+        
+        ```
 
-  outbound sms
+ #### outbound sms
     PATH : /sms/outbound
     Method : POST
     Parameters (Application Json)
         to*
         from*
-         text*
+        text*
         username*
-         password*
+        password*
     
     
     Headers :
         Content-Type : Application Json
-
-    Sample Req 
-      ```json 
-      {
+```json
+{
+  "Sample Req":  
          {
-	        "to": "4223232435",
-	        "from" : "42232446567",
-	        "text" : "ok this is great",
+	          "to": "4223232435",
+	          "from" : "42232446567",
+	          "text" : "ok this is great",
             "username": "aed3",
-	        "password" : "ksjdskjs2"
-        }
-        ```
-    Sample Response 
-       ```json 
-       {
-
-         {
+	          "password" : "ksjdskjs2"
+          },
+  "Sample Response": 
+          {
             "message": "outbound message ok",
             "error": "",
-            
-        }
+          }
         
         ```
