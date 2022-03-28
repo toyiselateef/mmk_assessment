@@ -10,12 +10,7 @@
       "description": "SMS inbound and outbound requests for MMK"
           
     },
-    "servers": [
-        {
-            "url": "http://localhost:3001"
-        }
-    ],
-    "host": "http://localhost:3001",
+    
 "scheme":"https",
 
     "paths": {

@@ -28,6 +28,8 @@ app.use(
   swaggerUi.setup(undefined, {
     swaggerOptions: {
       url: "../swagger.json",
+      host: `http://localhost:${port}`,
+      
     },
   })
 );
