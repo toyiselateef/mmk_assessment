@@ -140,7 +140,7 @@ The database needs to be up and running, also if theres ip whitelisting on your 
 
 ###sample request and response
 
-*inbound sms*
+inbound sms
     PATH : /sms/inbound
     Method : POST
     Parameters (Application Json)
@@ -155,13 +155,15 @@ The database needs to be up and running, also if theres ip whitelisting on your 
         Content-Type : Application Json
 
     Sample Req :
-     ```json   {
+     ```json
+     {   
 	        "to": "4223232435",
 	        "from" : "42232446567",
 	        "text" : "ok this is great",
           "username": "aed3",
 	        "password" : "ksjdskjs2"
         }
+
         ```
     Sample Response :
       ```json  {
@@ -185,8 +187,10 @@ The database needs to be up and running, also if theres ip whitelisting on your 
     Headers :
         Content-Type : Application Json
 
-    Sample Req :
-      ```json  {
+    Sample Req 
+      ```json 
+      {
+         {
 	        "to": "4223232435",
 	        "from" : "42232446567",
 	        "text" : "ok this is great",
@@ -194,8 +198,11 @@ The database needs to be up and running, also if theres ip whitelisting on your 
 	        "password" : "ksjdskjs2"
         }
         ```
-    Sample Response :
-       ```json {
+    Sample Response 
+       ```json 
+       {
+
+         {
             "message": "outbound message ok",
             "error": "",
             
