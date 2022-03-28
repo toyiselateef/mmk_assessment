@@ -6,6 +6,10 @@ This project uses the following environment variables:
 | Name                          | Description                         | Default Value                                  |
 | ----------------------------- | ------------------------------------| -----------------------------------------------|
 |CORS           | Cors accepted values            | "*"      |
+|DATABASE_URL           | database conncetion strings            |       |
+|RedisHost           | Redis coninection host/address            |      |
+|RedisPort           | Redis connection port            |       |
+|RedisPassword          | Redis Password string            |      |
 
 
 # Pre-requisites
