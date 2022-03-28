@@ -173,7 +173,7 @@ inbound sms
         }
 ```
 
-        *outbound sms*
+  outbound sms
     PATH : /sms/outbound
     Method : POST
     Parameters (Application Json)
