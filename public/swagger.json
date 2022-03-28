@@ -16,7 +16,7 @@
         }
     ],
     "host": "http://localhost:3001",
-"scheme":"http",
+"scheme":"https",
 
     "paths": {
 
