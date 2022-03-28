@@ -7,7 +7,7 @@
         
       "title": "MMK API",
       "version": "v1",
-      "description": "SMS inbound and outbound requests for MMK",
+      "description": "SMS inbound and outbound requests for MMK"
           
     },
     "servers": [
@@ -16,14 +16,14 @@
         }
     ],
     "host": "http://localhost:3001",
-
+"scheme":"http",
 
     "paths": {
 
     "/sms/inbound": {
         "post": {
             "tags": ["sms inbound"],
-            "requestUrl":"http://localhost:3001/sms/inbound",
+           
             "requestBody": {
                 "content": {
                   "application/json": {
