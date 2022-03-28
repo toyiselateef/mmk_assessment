@@ -8,11 +8,7 @@
       "title": "MMK API",
       "version": "v1",
       "description": "SMS inbound and outbound requests for MMK",
-      "contact": {
-        "name": "Toyise Lateef",
-        "email": "toyiselateef2@gmail.com", 
-        "url": "https://toyiseportfolio.herokuapp.com"
-      }
+          
     },
     "servers": [
         {
