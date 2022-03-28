@@ -34,7 +34,7 @@ npm start
 
 - API Document endpoints
 
-swagger-ui  Endpoint : http://localhost:8001/docs 
+swagger-ui  Endpoint : http://localhost:3001/docs 
 
 
 # TypeScript + Node 
@@ -65,7 +65,7 @@ The folder structure of this app is explained below:
 | **src/validators**              | model/data validators that are used for validating request models.               
 | **src**/server.ts         | Entry point to the API                                                               |
 | package.json             | Contains npm dependencies as well as [build scripts](#what-if-a-library-isnt-on-definitelytyped)   | tsconfig.json            | Config settings for compiling source code only written in TypeScript    
-| tslint.json              | Config settings for TSLint code style checking                                                |
+                                                |
 
 ## Building the project
 ### Configuring TypeScript compilation
@@ -119,12 +119,12 @@ The tests are  written in jest and the assertions done using Chai
 "jest": "^27.4.1",
 
 
+
+```
 ```
 npm run test
 
-````
-Test files are created under test folder.
-
+```
 
 # Swagger
 ## Specification
@@ -137,6 +137,9 @@ The current solution has an example for using a private npm repository. if you w
 ## database connection error
 The database needs to be up and running, also if theres ip whitelisting on your database ensure to whitelist the server hosting this api's ip address(es)
 
+
+####sample request and response
+```json
 *inbound sms*
     PATH : /sms/inbound
     Method : POST
@@ -195,3 +198,4 @@ The database needs to be up and running, also if theres ip whitelisting on your 
             "error": "",
             
         }
+        ```
