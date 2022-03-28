@@ -20,7 +20,9 @@
   },
   "homepage": "https://github.com/toyiselateef/mmk_assessment#readme",
   "dependencies": {
+    "@types/cors": "^2.8.12",
     "@types/morgan": "^1.9.3",
+    "cors": "^2.8.5",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
     "joi": "^17.6.0",
