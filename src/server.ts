@@ -14,7 +14,15 @@ const port = process.env.PORT || 3001;
 app.use(express.json({ limit: "50mb" }));
 app.use(express.static("public"));
 
-
+app.use(
+  "/docs",
+  swaggerUi.serve,
+  swaggerUi.setup(undefined, {
+    swaggerOptions: {
+      url: "../swagger.json",
+    },
+  })
+);
 
 
 app.use(function (req: Request, res: Response, next: NextFunction) {
@@ -34,15 +42,6 @@ app.use(
   morgan(
     ":method :url statusCode ===  :status :res[content-length] - :response-time ms"
   )
-);
-app.use(
-  "/docs",
-  swaggerUi.serve,
-  swaggerUi.setup(undefined, {
-    swaggerOptions: {
-      url: "/swagger.json",
-    },
-  })
 );
 
 app.use("/", authenticate, smsModule);
