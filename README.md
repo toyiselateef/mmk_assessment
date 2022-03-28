@@ -142,24 +142,24 @@ The current solution has an example for using a private npm repository. if you w
 The database needs to be up and running, also if theres ip whitelisting on your database ensure to whitelist the server hosting this api's ip address(es)
 
 
-### sample request and response
+## sample request and response
 
-#### inbound sms
+### inbound sms
     PATH : /sms/inbound
     Method : POST
     Parameters (Application Json)
         to*
         from*
-         text*
+        text*
         username*
-         password*
+        password*
     
     
     Headers :
         Content-Type : Application Json
 ```json
 {
-  "Sample Req":  
+  "Sample payload":  
          {
 	          "to": "4223232435",
 	          "from" : "42232446567",
@@ -173,9 +173,11 @@ The database needs to be up and running, also if theres ip whitelisting on your 
             "error": "",
           }
         
-        ```
+```
 
- #### outbound sms
+
+
+  ### outbound sms
     PATH : /sms/outbound
     Method : POST
     Parameters (Application Json)
@@ -190,7 +192,7 @@ The database needs to be up and running, also if theres ip whitelisting on your 
         Content-Type : Application Json
 ```json
 {
-  "Sample Req":  
+  "Sample payload":  
          {
 	          "to": "4223232435",
 	          "from" : "42232446567",
@@ -204,4 +206,4 @@ The database needs to be up and running, also if theres ip whitelisting on your 
             "error": "",
           }
         
-        ```
+```
