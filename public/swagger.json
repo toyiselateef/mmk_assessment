@@ -85,7 +85,7 @@
     "/sms/outbound": {
         "post": {
             "tags": ["sms outbound"],
-            "url":"http://localhost:3001/sms/outbound",
+           
             "requestBody": {
                 "content": {
                   "application/json": {
