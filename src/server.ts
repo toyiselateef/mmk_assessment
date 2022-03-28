@@ -4,22 +4,45 @@ import "dotenv/config";
 import authenticate from "./middlewares/auth";
 import smsModule from "./routes/sms.route";
 import swaggerUi from "swagger-ui-express";
+import swaggerJsDoc from "swagger-jsdoc";
+
 
 const app: Application = express();
 
 const port = process.env.PORT || 3001;
 
 app.use(express.json({ limit: "50mb" }));
+app.use(express.static("public"));
 
-// app.use(
-//   "/docs",
-//   swaggerUi.serve,
-//   swaggerUi.setup(undefined, {
-//     swaggerOptions: {
-//       url: "/swagger.json",
-//     },
-//   })
-// );
+// const options = {
+// 	definition: {
+// 		openapi: "3.0.0",
+// 		info: {
+// 			title: "MMK API",
+// 			version: "1.0.0",
+// 			description: "A simple SMS API for MMK",
+// 		},
+// 		servers: [
+// 			{
+// 				url: `http://localhost:${port}`,
+// 			},
+// 		],
+// 	},
+// 	apis: ["./routes/*.ts"],
+// };
+
+//const specifications = swaggerJsDoc(options);
+//app.use( "/docs",swaggerUi.serve, swaggerUi.setup(specifications));
+
+app.use(
+  "/docs",
+  swaggerUi.serve,
+  swaggerUi.setup(undefined, {
+    swaggerOptions: {
+      url: "../swagger.json",
+    },
+  })
+);
 
 app.use(function (req: Request, res: Response, next: NextFunction) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -39,6 +62,15 @@ app.use(
   )
 );
 
+// app.use(
+//   "/docs",
+//   swaggerUi.serve,
+//   swaggerUi.setup(undefined, {
+//     swaggerOptions: {
+//       url: "../swagger.json",
+//     },
+//   })
+// );
 app.use("/", authenticate, smsModule);
 
 app.listen(port, () => {

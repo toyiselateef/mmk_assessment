@@ -1,0 +1,285 @@
+
+  
+  
+  {
+    "openapi": "3.0.1",
+    "info": {
+        
+      "title": "MMK API",
+      "version": "v1",
+      "description": "SMS inbound and outbound requests for MMK",
+      "contact": {
+        "name": "Toyise Lateef",
+        "email": "toyiselateef2@gmail.com", 
+        "url": "https://toyiseportfolio.herokuapp.com"
+      }
+    },
+    "servers": [
+        {
+            "url": "http://localhost:3001"
+        }
+    ],
+    "host": "http://localhost:3001",
+
+
+    "paths": {
+
+    "/sms/inbound": {
+        "post": {
+            "tags": ["sms inbound"],
+            "requestUrl":"http://localhost:3001/sms/inbound",
+            "requestBody": {
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      "$ref": "#/components/schemas/SmsInbound"
+                    }
+                  },
+                  "text/json": {
+                    "schema": {
+                      "$ref": "#/components/schemas/SmsInbound"
+                    }
+                  },
+                  "application/*+json": {
+                    "schema": {
+                      "$ref": "#/components/schemas/SmsInbound"
+                    }
+                  }
+                }
+              },
+              "responses": {
+                "200": {
+                  "description": "Success",
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "$ref": "#/components/schemas/Success_Response"
+                      }
+                    }
+                  }
+                },
+                "403": {
+                  "description": "Bad Request",
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "$ref": "#/components/schemas/BadRequest_Response"
+                      }
+                    }
+                  }
+                },
+                "405": {
+                  "description": "Method not allowed",
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "$ref": "#/components/schemas/MethodNotAllowed_Response"
+                      }
+                    }
+                  }
+                },
+                "500": {
+                  "description": "Internal Server Error",
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "$ref": "#/components/schemas/InternalServerError_Response"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+    "/sms/outbound": {
+        "post": {
+            "tags": ["sms outbound"],
+            "url":"http://localhost:3001/sms/outbound",
+            "requestBody": {
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      "$ref": "#/components/schemas/SmsOutbound"
+                    }
+                  },
+                  "text/json": {
+                    "schema": {
+                      "$ref": "#/components/schemas/SmsOutbound"
+                    }
+                  },
+                  "application/*+json": {
+                    "schema": {
+                      "$ref": "#/components/schemas/SmsInbound"
+                    }
+                  }
+                }
+              },
+              "responses": {
+                "default":{
+                    "schema": {
+                        "properties":{
+"message":{
+"type":"string"
+},"error":{
+    "type":"string"
+    }
+                        }
+                      }
+                },
+                "200": {
+                  "description": "Success",
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "$ref": "#/components/schemas/Success_Response"
+                      }
+                    }
+                  }
+                },
+                "403": {
+                  "description": "Bad Request",
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "$ref": "#/components/schemas/BadRequest_Response"
+                      }
+                    }
+                  }
+                },
+                "405": {
+                  "description": "Method not allowed",
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "$ref": "#/components/schemas/MethodNotAllowed_Response"
+                      }
+                    }
+                  }
+                },
+                "500": {
+                  "description": "Internal Server Error",
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "$ref": "#/components/schemas/InternalServerError_Response"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+  "components": {
+    "schemas": {
+      "SmsInbound": {
+        "type": "object",
+        "properties": {
+            "from": {
+                "type": "string"
+              },
+              "to": {
+                "type": "string"
+              },
+              "text": {
+                "type": "string"
+              },
+              "username": {
+                "type": "string"
+              },
+              "password": {
+                "type": "string"
+              }
+        },
+        "additionalProperties": false, 
+        "example": {
+          
+            "from": "423233132343",
+            "to": "4363474858",
+            "text": "Awesome move by the gunners",
+            "username": "arey2",
+            "password": "34YUDNDJD8"
+          }
+      },
+      "SmsOutbound": {
+        "type": "object",
+        "properties": {
+            "from": {
+                "type": "string"
+              },
+              "to": {
+                "type": "string"
+              },
+              "text": {
+                "type": "string"
+              },
+              "username": {
+                "type": "string"
+              },
+              "password": {
+                "type": "string"
+              }
+              
+        },
+        "additionalProperties": false, 
+              "example": {
+                "to": "4363474858",
+                  "from": "423233132343",
+                  "text": "Awesome move by the gunners",
+                  "username": "arey2",
+                  "password": "34YUDNDJD8"
+                }
+      },
+     "BadRequest_Response": {
+        "type": "object",
+        "properties": {
+            
+        },
+        "additionalProperties": false,
+        "example": {
+                "message": "",
+                "error": "bad request"
+               
+              }
+      },
+      "Success_Response": {
+        "type": "object",
+        "properties": {
+            
+        },
+        "additionalProperties": false,
+        "example": {
+                "message": "inbound/outbound message ok",
+                "error": ""
+               
+              }
+      },
+      "MethodNotAllowed_Response": {
+        "type": "object",
+        "properties": {               
+              
+        },
+        "additionalProperties": false,
+                "example":{
+                    "message": "",
+                        
+                    "error":"method not allowed"
+                    
+                }
+      },
+      "InternalServerError_Response": {
+        "type": "object",
+        "properties": {
+           
+        },
+        "additionalProperties": false,
+         "example": {
+                "message": "",
+                "error": "unknown failure"
+               
+              }
+      }
+    }
+  }
+
+}
