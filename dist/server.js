@@ -6,7 +6,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const app_1 = __importDefault(require("./app"));
 require("dotenv/config");
 const morgan_1 = __importDefault(require("morgan"));
-const handleErrors_1 = __importDefault(require("../src/middlewares/handleErrors"));
 const port = process.env.PORT || 3001;
 function requireHTTPS(req, res, next) {
     // The 'x-forwarded-proto' check is for Heroku
@@ -19,6 +18,5 @@ function requireHTTPS(req, res, next) {
 }
 app_1.default.app.use(requireHTTPS);
 app_1.default.app.use((0, morgan_1.default)(":method :url statusCode ===  :status :res[content-length] - :response-time ms"));
-app_1.default.app.use(handleErrors_1.default);
 app_1.default.app.listen(port, () => console.log(`app started on ${port}`));
 //# sourceMappingURL=server.js.map

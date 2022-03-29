@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const db_1 = __importDefault(require("../config/db"));
 const redis_1 = __importDefault(require("../middlewares/redis"));
 async function inbound(req, res) {
-    console.log("inbound here");
+    console.log("inbound controller action");
     try {
         const { to, from, text, userId } = req.body;
         const { rows } = await db_1.default.query("Select * from  phone_number where number = $1 and account_id = $2", [to, userId]);
@@ -23,11 +23,12 @@ async function inbound(req, res) {
         }
     }
     catch (error) {
+        console.log(`this error occurred: ${error}`);
         return res.status(500).json({ message: "", error: "unknown failure" });
     }
 }
 async function outbound(req, res) {
-    console.log("outbound here");
+    console.log("outbound controller action");
     try {
         const { to, from, text, userId } = req.body;
         const { rows } = await db_1.default.query("Select * from  phone_number where number = $1 and account_id = $2", [from, userId]);
@@ -52,7 +53,7 @@ async function outbound(req, res) {
         }
     }
     catch (error) {
-        console.log("errors");
+        console.log(`this error occurred: ${error}`);
         return res.status(500).json({ message: "", error: "unknown failure" });
     }
 }

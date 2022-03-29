@@ -3,8 +3,6 @@ import "dotenv/config";
 import morgan from "morgan";
 import swaggerUi from "swagger-ui-express";
 import swaggerJsDoc from "swagger-jsdoc";
-import handleError from "../src/middlewares/handleErrors";
-
 const port = process.env.PORT || 3001;
 
 function requireHTTPS(req, res, next) {
@@ -25,5 +23,5 @@ app.app.use(
     ":method :url statusCode ===  :status :res[content-length] - :response-time ms"
   )
 );
-app.app.use(handleError);
+
 app.app.listen(port, () => console.log(`app started on ${port}`));
