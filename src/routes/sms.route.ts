@@ -8,10 +8,7 @@ const router: IRouter = express.Router();
 
 
  
- const methodNotAllowed = (req, res, next) => res.status(405).json({ message:"",error: "method not allowed" });
-router.route("/sms/inbound").post( validate(inbound), sms.inbound).all(methodNotAllowed);
-
-
-router.route("/sms/outbound").post( validate(outbound), sms.outbound).all(methodNotAllowed);
+router.route("/sms/inbound").post( validate(inbound), sms.inbound);
+router.route("/sms/outbound").post( validate(outbound), sms.outbound);
 
 export default router;

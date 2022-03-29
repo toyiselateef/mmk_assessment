@@ -10,6 +10,7 @@ pool.on("connect", () => {
     console.log("connected successfully!");
 });
 exports.default = {
-    query: (text, params) => pool.query(text, params)
+    query: (text, params) => pool.query(text, params),
+    end: () => pool.end(),
 };
 //# sourceMappingURL=db.js.map

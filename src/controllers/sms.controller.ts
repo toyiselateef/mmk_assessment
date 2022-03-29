@@ -4,7 +4,7 @@ import redisClient from "../middlewares/redis";
 import redis from "../middlewares/redis";
 
 async function inbound(req: Request, res: Response) {
-  console.log('inbound here');
+  console.log("inbound here");
   try {
     const { to, from, text, userId } = req.body;
     const { rows } = await db.query(
@@ -28,7 +28,7 @@ async function inbound(req: Request, res: Response) {
 }
 
 async function outbound(req: Request, res: Response) {
-  console.log('outbound here');
+  console.log("outbound here");
   try {
     const { to, from, text, userId } = req.body;
 
@@ -58,7 +58,7 @@ async function outbound(req: Request, res: Response) {
         .json({ message: "", error: "to parameter not found" });
     }
   } catch (error) {
-    console.log('errors')
+    console.log("errors");
     return res.status(500).json({ message: "", error: "unknown failure" });
   }
 }

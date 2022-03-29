@@ -1,19 +1,23 @@
 # mmk-api
+The main purpose of this repository is to show a simple microservice that uses postgresql as database provider and redis for caching. The Rest APIs will be using the Swagger (OpenAPI) Specification, and supports cloud postgres and redis lab.
 
-# Environment vars
+## Environment vars
 This project uses the following environment variables:
 
 | Name                          | Description                         | Default Value                                  |
 | ----------------------------- | ------------------------------------| -----------------------------------------------|
 |CORS           | Cors accepted values            | "*"      |
 |DATABASE_URL           | database conncetion strings            |       |
-|RedisHost           | Redis coninection host/address            |      |
+|RedisHost           | Redis connection host/address            |      |
 |RedisPort           | Redis connection port            |       |
 |RedisPassword          | Redis Password string            |      |
+|NODE_ENV          | Redis Password string            |      |
 
 
 # Pre-requisites
 - Install [Node.js](https://nodejs.org/en/) version 16.8.0
+- Install postgres version 8.7.3
+- Install redis version 4.0.4
 
 
 # Getting started
@@ -28,10 +32,10 @@ npm install
 ```
 - Build and run the project
 ```
-npm build
+npm run build
 ```
 ```
-npm start
+npm run start
 ```
   Navigate to `http://localhost:3001`
 
@@ -41,10 +45,7 @@ swagger-ui  Endpoint : http://localhost:3001/docs
 
 
 # TypeScript + Node 
-The main purpose of this repository is to show a simple microservice that uses postgresql as database provider and redis for caching. The Rest APIs will be using the Swagger (OpenAPI) Specification, and supports cloud postgres and redis lab.
-
-
-
+This project uses typescript in development.
 
 ## Getting TypeScript
 Add Typescript to project `npm`.
@@ -69,7 +70,7 @@ The folder structure of this app is explained below:
 | **src**/server.ts         | Entry point to the API                                                               |
 | package.json             | Contains npm dependencies as well as 
 | tsconfig.json            | Config settings for compiling source code only written in TypeScript    
-                                                |
+
 
 ## Building the project
 ### Configuring TypeScript compilation
@@ -117,11 +118,11 @@ Run and build MMK API with the following scripts:
 | `test`                    | Runs build and run tests using mocha        |
 
 ## Testing
-The tests are  written in jest and the assertions done using Chai
+The tests are  written in jest and supertest
 
 ```
 "jest": "^27.4.1",
-
+"supertest" :"^6.2.2"
 
 
 ```
