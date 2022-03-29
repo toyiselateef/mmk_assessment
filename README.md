@@ -11,7 +11,7 @@ This project uses the following environment variables:
 |RedisHost           | Redis connection host/address            |      |
 |RedisPort           | Redis connection port            |       |
 |RedisPassword          | Redis Password string            |      |
-|NODE_ENV          | Redis Password string            |      |
+|NODE_ENV          | used to determine dev/prod behavior            |      |
 
 
 # Pre-requisites
